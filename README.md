@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website!
 
 ## 🔗 Live Site
-Visit the live site here: https://ovodofred.github.com/portfolio-website
+Visit the live site here: [https://ovodofred.github.com/portfolio-website](https://github.com/ovodofred/portfolio-website)
 
 ## 📁 Project Structure
 
