@@ -1,0 +1,365 @@
+/* Global Styling */
+body.horizontal-scroll {
+    display: flex;
+    flex-direction: row; /* Horizontal scroll direction */
+    overflow-x: scroll; /* Allow horizontal scrolling */
+}
+
+main, section {
+    width: 100%;
+    max-width: 2000px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #000;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, p, div, span {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Sidebar Styles */
+#sidebar-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Sidebar width */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    transform: translateX(-100%); /* Initially hidden */
+    transition: transform 0.3s ease;
+}
+
+#sidebar-header.active {
+    transform: translateX(0); /* Slide in when active */
+}
+
+/* Menu Button */
+.menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1100; /* Above the sidebar */
+    outline: none;
+    transition: transform 0.3s ease;
+}
+
+.menu-button:hover {
+    transform: scale(1.1); /* Subtle hover effect */
+}
+
+/* Vertical Navigation */
+#vertical-nav {
+    margin-top: 50px;
+    width: 100%; /* Full width within sidebar */
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between buttons */
+    width: 100%;
+}
+
+/* Navigation Buttons */
+.nav-button {
+    background-color: #444; /* Dark grey background */
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none; /* Remove underlines */
+}
+
+.nav-button:hover {
+    background-color: #555; /* Slightly lighter grey */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* Contact Button */
+.contact-button {
+    margin-top: 30px; /* Space between navigation and contact */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.contact-btn {
+    display: block;
+    background-color: #333; /* Dark grey */
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 10px;
+    text-decoration: none; /* Remove underlines */
+}
+
+.contact-btn:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px; /* Space between icons */
+    margin-top: 10px;
+}
+
+.social-icons a img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Circular icons */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+    opacity: 0.8; /* Slight fade effect */
+}
+
+
+@media (max-width: 768px) {
+    #sidebar-header {
+        width: 200px; /* Adjust sidebar width for smaller screens */
+    }
+
+    .nav-button {
+        font-size: 0.9rem; /* Slightly smaller font size */
+    }
+
+    .social-icons a img {
+        width: 30px;
+        height: 30px; /* Smaller icons */
+    }
+}
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 50vh; /* Full viewport height */
+    background: url('/images/ovodo-fred-bg-image 1.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover; /* Ensure the image scales properly */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    padding: 20px;
+}
+
+.hero-overlay h4 {
+    font-size: 1.2rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.hero-overlay h1.name {
+    font-size: 6rem;
+    margin: 10px 0;
+    letter-spacing: 5px;
+    animation: magneticEffect 2s ease-in-out infinite;
+}
+
+.hero-overlay h3 {
+    font-size: 1.8rem;
+    margin: 20px 0;
+}
+
+/* Typing Text */
+.typing-container {
+    width: 100%;
+    max-width: 500px;
+    height: 150px;
+    overflow: hidden;
+    border: 2px solid #333;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: rgba(50, 50, 50, 0.5);
+}
+
+.typing-text {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
+    white-space: normal;
+    border-right: 2px solid black;
+    animation: typing 6s steps(50) 1s forwards, blink-caret 0.7s step-end infinite;
+}
+
+/* Blog Section */
+.blog-section {
+    margin-bottom: 0; /* Ensure no bottom margin */
+    padding-bottom: 0; /* Reduce extra padding at the bottom */
+}
+
+/* Contact Section Styling */
+.contact-section {
+    background-color: #f8f9fa; /* Light background */
+    padding: 60px 20px; /* Padding for the section */
+    text-align: center; /* Center-align content */
+    margin-top: 0; /* Ensure no top margin */
+    padding-top: 0; /* Reduce extra padding at the top */
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto; /* Center the container */
+    background-color: white; /* White form background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.contact-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-container p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Spacing between form elements */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    outline: none;
+}
+
+.submit-button {
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+    transform: scale(1.05); /* Slight scaling on hover */
+}
+
+/* FOOTER SECTION */
+.footer-bottom p {
+    font-size: 1rem;
+    color: #aaa;
+    margin: 0;
+}
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.footer-container > div {
+    width: 30%;
+    padding: 20px;
+}
+
+.footer-about h3, .footer-social h3, .footer-contact h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.footer-about p, .footer-contact p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 20px;
+}
